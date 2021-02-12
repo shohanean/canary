@@ -250,7 +250,7 @@
             </div>
             <div class="col-5">
                 <small>
-                    কারিগরি সহায়তায়:
+                    কারিগরি সহায়তায়: CBT&A
                 </small>
             </div>
         </div>
