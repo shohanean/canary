@@ -31,13 +31,35 @@
                     <?php if ( $the_query->have_posts() ) : ?>
                     <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>                
                         <div>
-                            <?=the_post_thumbnail();?> 
+                            <img src="<?=get_the_post_thumbnail_url();?> " alt="not found">
                         </div>
                     <?php endwhile;
                     wp_reset_postdata(); ?>
                     <?php else:  ?>
                         <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
                     <?php endif; ?>
+                </div>
+                <div class="custom_tab">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <?php if ( $the_query->have_posts() ) : ?>
+                            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>                
+                                <li class="nav-item">
+                                    <a class="nav-link" id="home-tab-<?=get_the_ID()?>" data-toggle="tab" href="#home-<?=get_the_ID()?>" role="tab" aria-controls="home-<?=get_the_ID()?>" aria-selected="true"><?=the_title()?></a>
+                                </li>
+                            <?php endwhile;
+                            wp_reset_postdata(); ?>                            
+                        <?php endif; ?>                            
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                            <?php if ( $the_query->have_posts() ) : ?>
+                            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>                
+                                <div class="tab-pane fade" id="home-<?=get_the_ID()?>" role="tabpanel" aria-labelledby="home-tab-<?=get_the_ID()?>">
+                                    <img src="<?=get_the_post_thumbnail_url();?> " alt="not found" style="width: 100%">
+                                </div>
+                            <?php endwhile;
+                            wp_reset_postdata(); ?>                            
+                            <?php endif; ?>                                                                                                    
+                    </div>
                 </div>
                 <div class="initiative">
                     <h4 class="purple_header">উদ্যোগ</h4>
