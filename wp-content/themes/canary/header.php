@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Hello, world!</title>
+    
+    <title><?=bloginfo('name')?> - <?=bloginfo('description')?></title>
     <?php wp_head(); ?>
   </head>
   <body>
@@ -41,13 +42,13 @@
     <div class="container">
         <div class="row">
             <div class="col-5">
-                <img src="https://bangladesh.gov.bd/themes/responsive_npf/templates/bangladesh/images/logo_bn.png" alt="">
+                <?=the_custom_logo()?>
             </div>
             <div class="col-4">
                 <form class="form-inline pl-5 pt-4">
                     <div class="form-group">
                         <label for="inputPassword2" class="sr-only">Password</label>
-                        <input type="password" class="form-control form-control-sm" id="inputPassword2" placeholder="খুঁজুন">
+                        <input type="text" class="form-control form-control-sm" id="inputPassword2" placeholder="খুঁজুন" name="s" value="<?php the_search_query(); ?>">
                     </div>
                     <button type="submit" class="btn btn-sm btn-secondary">অনুসন্ধান</button>
                     </form>
@@ -74,51 +75,16 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-            </ul>
+            <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'header-menu',
+                        'menu_class'        => 'navbar-nav',
+                    )
+                );
+            ?>
         </div>
     </div>
 </nav>
