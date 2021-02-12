@@ -14,7 +14,7 @@ Version: 1.0.0
 ul, ol{
     list-style: none;
 }
-p,h1,h2,h3,h4,h5,h6,ul,ol,li{
+h1,h2,h3,h4,h5,h6,p,ul,ol,li{
     margin: 0;
     padding: 0;
 }
@@ -33,8 +33,12 @@ a:hover{
     padding: 10px 10px;   
     background-color: #9E5BBA;
 }
+.header_left p {
+    margin-bottom: 0px !important;
+}
 .header_right p {
     display: inline-block;
+    margin-bottom: 0px !important;
 }
 .header_right a {
     text-decoration: none;
@@ -76,7 +80,8 @@ a:hover{
 .right_bar p{
     background: #609513;
     color: #fff;
-    padding: 5px;
+    padding: 5px;    
+    margin-bottom: 0px !important;
 }
 .right_bar img{
     width: 100%;

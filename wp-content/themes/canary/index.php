@@ -6,33 +6,38 @@
     <div class="container">
         <div class="row">
             <div class="col-8 pl-0">
-                <div class="main_body_banner">
-                    <img src="<?=get_template_directory_uri()?>/assets/images/banner.jpg" alt="<?=get_template_directory_uri()?>">
+                <div class="main_body_banner">                    
+                    <img src="<?php echo esc_url( get_theme_mod( 'single_banner_setting' ) ); ?>" alt="not found single banner setting">
                 </div>
                 <div class="main_body_marque_one">
                     <h2>
                         <marquee behavior="" direction="left">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, eum? Fuga officia aut sint quis eaque quos iste sed optio natus? Inventore id quibusdam fuga blanditiis nemo qui in earum.
+                            <?=get_theme_mod('news_ticker_setting_one')?>
                         </marquee>
                     </h2>
                 </div>
                 <div class="main_body_marque_two pt-2 pb-2">
                     <h6 class="text-danger font-weight-bold">
                         <marquee behavior="" direction="left" scrollamount="12">
-                            বাংলা সব অক্ষর রাখার একটা চেষ্টা ছিল। কিন্তু তা ব্যর্থ – আমি শেষে এই চেষ্টা করাটাকেই অপ্রয়োজনীয় মনে করলাম। এ-তো আর বাংলা ভাষার আগার হচ্ছে না, এ হলো পরম্পরাহীন, কিংবা তাৎপর্যপূর্ণ একটি লেখা, যা বাংলা ভাষার প্রতিনিধিত্ব করবে টাইপসেটিং, প্রিন্টিং, ইন্ডাস্ট্রিতে কিংবা ওয়েব ডিযাইনে।
+                            <?=get_theme_mod('news_ticker_setting_two')?>
                         </marquee>
                     </h6>
                 </div>
                 <div class="slick_slider">
-                    <div>
-                        <img src="<?=get_template_directory_uri()?>/assets/images/slider1.jpg" alt="">
-                    </div>
-                    <div>
-                        <img src="<?=get_template_directory_uri()?>/assets/images/slider2.jpg" alt="">
-                    </div>
-                    <div>
-                        <img src="<?=get_template_directory_uri()?>/assets/images/slider3.jpg" alt="">
-                    </div>
+                    <?php 
+                        $args = array( 'post_type' => 'sliders', 'posts_per_page' => 10 );
+                        $the_query = new WP_Query( $args ); 
+                    ?>
+                    <?php if ( $the_query->have_posts() ) : ?>
+                    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>                
+                        <div>
+                            <?=the_post_thumbnail();?> 
+                        </div>
+                    <?php endwhile;
+                    wp_reset_postdata(); ?>
+                    <?php else:  ?>
+                        <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+                    <?php endif; ?>
                 </div>
                 <div class="initiative">
                     <h4 class="purple_header">উদ্যোগ</h4>
@@ -87,115 +92,21 @@
                     <div class="row">
                         <div class="col-4">
                             <h6>সেবাসমূহ</h6>
-                            <ul>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের (২০১৬-২০২০)</a>
-                                </li>
-                            </ul>
+                            <?php dynamic_sidebar('link-sidebar')?>
                         </div>
                         <div class="col-4">
                             <h6>পাতাসমূহ</h6>
-                            <ul>                                    
-                                <li>
-                                    <a href="">সপ্তম পঞ্চবার্ষিক পরিকল্পনা</a>
-                                </li>
-                                <li>
-                                    <a href="">সপ্তম পঞ্চবার্ষিক পরিকল্পনা</a>
-                                </li>
-                                <li>
-                                    <a href="">সপ্তম পঞ্চবার্ষিক পরিকল্পনা</a>
-                                </li>
-                                <li>
-                                    <a href="">সপ্তম পঞ্চবার্ষিক পরিকল্পনা</a>
-                                </li>
-                                <li>
-                                    <a href="">সপ্তম পঞ্চবার্ষিক পরিকল্পনা</a>
-                                </li>
-                                <li>
-                                    <a href="">সপ্তম পঞ্চবার্ষিক পরিকল্পনা</a>
-                                </li>
-                                <li>
-                                    <a href="">সপ্তম পঞ্চবার্ষিক পরিকল্পনা</a>
-                                </li>
-                            </ul>
+                            <?php dynamic_sidebar('link-sidebar')?>
                         </div>
                         <div class="col-4">
                             <h6>পোর্টালসমূহ</h6>
-                            <ul>
-                                <li>
-                                    <a href="">বাংলাদেশ</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের সপ্তম পঞ্চবার্ষিক পরিকল্পনা (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের সপ্তম পঞ্চবার্ষিক পরিকল্পনা (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের সপ্তম পঞ্চবার্ষিক পরিকল্পনা (২০১৬-২০২০)</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ</a>
-                                </li>
-                                <li>
-                                    <a href="">বাংলাদেশ সরকারের সপ্তম পঞ্চবার্ষিক পরিকল্পনা (২০১৬-২০২০)</a>
-                                </li>
-                            </ul>
+                            <?php dynamic_sidebar('link-sidebar')?>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-4 pr-0 right_bar">
-                <div class="mb-3">
-                    <p>
-                        মাস্ক পরুন সেবা নিন
-                    </p>
-                    <img src="<?=get_template_directory_uri()?>/assets/images/widget1.jpeg" alt="">
-                </div>
-                <div class="mb-3">
-                    <p>
-                        আশ্রয়ণের অধিকার শেখ হাসিনার উপহার
-                    </p>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/x50HVEENBhc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/FvkvWDDsBq4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/iJECjK64jaI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/x50HVEENBhc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/FvkvWDDsBq4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/iJECjK64jaI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/x50HVEENBhc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/FvkvWDDsBq4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/iJECjK64jaI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                <?=get_sidebar()?>
             </div>                
         </div>
     </div>
