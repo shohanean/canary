@@ -1,0 +1,41 @@
+/*!
+Theme Name: canary
+Theme URI: http://canary.com/
+Author: canary.com
+Author URI: http://canary.com/
+Description: This is for CBT&A
+Version: 1.0.0
+*/
+
+/* header part css */
+#header{
+    color: #fff;    
+}
+.header_cont{ 
+    padding: 10px 10px;   
+    background-color: #9E5BBA;
+}
+.header_right p {
+    display: inline-block;
+}
+.header_right a {
+    text-decoration: none;
+    color: #fff;
+    border-left: 1px solid #fff;
+    padding-left: 10px;
+}
+
+/* logo part css */
+#main_body{
+    padding: 10px 0;
+}
+
+/* menu part css */
+.nav_container{
+    background: #efefef;
+}
+.nav_container ul li a{
+    color: #000;
+    border-right: 1px solid #ddd;
+    margin: 5px 0;
+}
