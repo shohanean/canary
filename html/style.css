@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul, ol{
+    list-style: none;
+}
+p,h1,h2,h3,h4,h5,h6,ul,ol,li{
+    margin: 0;
+    padding: 0;
+}
+#header{
+    color: #fff;    
+}
+.header_cont{ 
+    padding: 10px 10px;   
+    background-color: #9E5BBA;
+}
+.header_right p {
+    display: inline-block;
+}
+.header_right a {
+    text-decoration: none;
+    color: #fff;
+    border-left: 1px solid #fff;
+    padding-left: 10px;
+}
+/* logo part css */
+#main_body{
+    padding: 10px 0;
+}
+/* menu part css */
+.nav_container{
+    background: #efefef;
+}
+.nav_container ul li a{
+    color: #000;
+    border-right: 1px solid #ddd;
+    margin: 5px 0;
+}
+.main_body_banner img{
+    width: 100%;
+    max-width: 100%;
+}
+.main_body_marque_one h2{
+    margin-top: 5px;
+    background: #ddd;
+}
+.slick_slider img {
+    width: 100%;
+}
+.right_bar p{
+    background: #609513;
+    color: #fff;
+    padding: 5px;
+}
+.right_bar img{
+    width: 100%;
+}
+.purple_header{
+    color: #9E5BBA;
+    font-weight: bold;
+    margin: 25px 0;
+}
+.initiative ul li a{
+    display: inline-block;
+    color: #000;
+    border-bottom: 1px solid green;    
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+.links img {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+}
+.popular ul li a{
+    display: inline-block;
+    color: #000;
+    margin-bottom: 10px;
+    font-weight: 100;
+    font-size: 13px;
+}
+.popular h6{
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted #ddd;
+}
+.footer_artwork img{
+    width: 100%;
+}
